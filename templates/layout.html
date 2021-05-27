@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="text/css" href="{{ url_for('static', filename='favicon.ico') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='modal.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tab.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dropdown.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='slider.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ bower_url_for(component='swiper', filename='dist/css/swiper.min.css') }}"  />
+        <link rel="stylesheet" type="text/css" href="{{ bower_url_for(component='leaflet', filename='dist/leaflet.css') }}"  />
+        
+        <script>
+        
+            var playImage = "{{ url_for('static', filename='play.svg') }}";
+    
+        </script>
+
+        <script type="text/javascript" src="{{ bower_url_for(component='jquery', filename='dist/jquery.min.js') }}"></script>     
+        <script type="text/javascript" src="{{ bower_url_for(component='jquery.cookie', filename='jquery.cookie.js') }}"></script>     
+        <script type="text/javascript" src="{{ bower_url_for(component='swiper', filename='dist/js/swiper.min.js') }}"></script>     
+        <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>     
+    </head>
+
+    <body>
+        <div class='main' style="width: 12%; height:12%; overflow:hidden;">
+            <div style="position: absolute; overflow:hidden; top:0px; bottom:0px; left:0px; right:0px;">
+                <img src="{{ url_for('static', filename='app-icon.png') }}" style="position:absolute; top:4px; left:5px;" alt="App"/>
+                <div id='toolbar'>
+                    <div style="position:absolute; top:16px; left:84px; font-weight:bold; font-size: 32px;  color:black"><label>X&nbsp;R&nbsp;A&nbsp;Y&nbsp;-&nbsp;A&nbsp;n&nbsp;a&nbsp;l&nbsp;y&nbsp;z&nbsp;e&nbsp;r</label></div>
+                    <div id='layout'> 
+                        <span class='tool'>
+                            <button class='button' id="refresh" style="position:absolute; right:10px; margin-top:12px;">
+                                <img src="{{ url_for('static', filename='refresh.svg') }}" style="padding-top:6px; margin:auto; width:16px; height:16px; text-align:center;" alt="Refresh"/>
+                            </button>
+                        </span>
+                    </div>           
+                </div>
+                
+                {% block content %}
+                {% endblock %}
+
+             <div id='waitDialog' class='modal'>
+                <div style="position:fixed; text-align: center; top:50%; left:48%; margin-left:0px; margin-top:-100px;">
+                    <div class='loader'></div>
+               </div>
+               <div id='waitMessage' style="position:absolute; top:60%; color:rgba(0,0,0, 1.0); text-align: center; width:100%;"></div>
+            </div> 
+    </body>
+</html>
