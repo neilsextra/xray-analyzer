@@ -1,4 +1,3 @@
-# Famos File Manager
+# Example Python/Flask Application
 
-* This program manages the upload an management of Famos Logs
-* 
+Little application using filtering techniques on XRAY images.
